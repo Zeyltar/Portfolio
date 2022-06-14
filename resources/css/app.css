@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('/fonts/Raleway-VariableFont_wght.ttf') format("truetype-variations");
+    src: url('/fonts/Raleway-Regular.ttf') format("truetype");
+    font-weight: 1 999;
+}
