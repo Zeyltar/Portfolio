@@ -8,7 +8,15 @@ module.exports = {
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
     ],
   theme: {
-    extend: {},
+    extend: {
+        fontFamily: {
+            raleway: ["Raleway" , "sans-serif"],
+        }
+    },
   },
-  plugins: [],
+  plugins: [
+      function ({ addVariant }) {
+          addVariant('child', '& > *');
+      }
+  ],
 }
