@@ -2,6 +2,123 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    body {
+     @apply font-raleway selection:bg-indigo-400 selection:text-zinc-900 lining-nums;
+    }
+
+}
+
+@layer components {
+    .navbar {
+        @apply
+        sticky
+        flex
+        top-0
+        z-50
+        bg-zinc-900
+        shadow-2xl;
+    }
+    .navbar .logo {
+        @apply
+        relative
+        flex
+        pl-1 pr-1 m-3
+        w-40
+        box-content
+        justify-center
+        tracking-widest
+        text-zinc-900
+        text-2xl
+        font-bold
+        bg-zinc-50;
+    }
+    .navbar .logo:hover {
+        @apply
+        text-teal-400
+        before:translate-x-1
+        before:translate-y-1
+        before:bg-teal-400
+        before:opacity-100
+        before:duration-300;
+    }
+    .navbar .logo:before {
+        content: "";
+        @apply
+        absolute
+        w-full h-full
+        -z-10
+        bg-zinc-50
+        opacity-0
+        transition-all
+        duration-700;
+    }
+
+
+    .link {
+        @apply
+        relative
+        block
+        px-32
+        -translate-x-10
+        transition-all
+        duration-300;
+    }
+    .link:hover
+    {
+        @apply
+        translate-x-0
+        before:scale-x-100
+        after:scale-x-100
+        after:translate-x-1
+        after:translate-y-1
+        after:duration-300
+        after:delay-100;
+
+    }
+    .link:before {
+        content: "";
+        @apply
+        absolute
+        block
+        top-[calc(50%-0.125rem)]
+        left-0
+        scale-x-0
+        w-16
+        h-1
+        bg-zinc-50
+        transition-all
+        duration-300;
+        transform-origin: left center;
+    }
+    .link:after {
+        content: "";
+        @apply
+        absolute
+        block
+        top-[calc(50%-0.125rem)]
+        left-0
+        scale-x-0
+        w-16
+        h-1
+        -z-10
+        bg-teal-400
+        transition-all
+        duration-300;
+        transform-origin: left center;
+    }
+
+    .footer {
+        @apply w-full bg-zinc-900 text-base text-neutral-50;
+    }
+}
+
+@layer utilities {
+    .title {
+        @apply text-6xl text-zinc-50;
+    }
+}
+
 @font-face {
     font-family: 'Raleway';
     src: url('/fonts/Raleway-VariableFont_wght.ttf') format("truetype");
