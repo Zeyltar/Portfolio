@@ -4,7 +4,20 @@
 
 @layer base {
     body {
-     @apply font-raleway selection:bg-indigo-400 selection:text-zinc-900 lining-nums;
+         @apply
+         font-raleway
+         selection:bg-indigo-400
+         selection:text-zinc-900
+         lining-nums
+         bg-zinc-100
+         dark:bg-zinc-900;
+    }
+
+    header
+    {
+        @apply sticky
+        top-0
+        z-50;
     }
 
 }
@@ -12,13 +25,14 @@
 @layer components {
     .navbar {
         @apply
-        sticky
+        relative
         flex
         top-0
         z-50
         bg-zinc-900
-        shadow-2xl;
+        shadow-xl;
     }
+
     .navbar .logo {
         @apply
         relative
@@ -31,11 +45,14 @@
         text-zinc-900
         text-2xl
         font-bold
-        bg-zinc-50;
+        bg-zinc-50
+        transition-all
+        duration-700;
     }
     .navbar .logo:hover {
         @apply
         text-teal-400
+        duration-300
         before:translate-x-1
         before:translate-y-1
         before:bg-teal-400
@@ -53,7 +70,17 @@
         transition-all
         duration-700;
     }
+    .navbar .logo a{
 
+    }
+
+    .interactive-list {
+        @apply relative flex
+    }
+
+    .interactive-list item {
+        @apply relative;
+    }
 
     .link {
         @apply
@@ -73,49 +100,78 @@
         after:translate-x-1
         after:translate-y-1
         after:duration-300
-        after:delay-100;
-
+        after:delay-150;
+    }
+    .link:before, .link:after{
+        content: "";
+        @apply
+        absolute
+        block
+        top-[calc(50%-0.125rem)]
+        left-0
+        scale-x-0
+        w-16
+        h-1
+        transition-all
+        duration-300;
+        transform-origin: left center;
     }
     .link:before {
-        content: "";
         @apply
-        absolute
-        block
-        top-[calc(50%-0.125rem)]
-        left-0
-        scale-x-0
-        w-16
-        h-1
-        bg-zinc-50
-        transition-all
-        duration-300;
-        transform-origin: left center;
+        bg-zinc-900
+        dark:bg-zinc-50;
     }
     .link:after {
-        content: "";
         @apply
-        absolute
-        block
-        top-[calc(50%-0.125rem)]
-        left-0
-        scale-x-0
-        w-16
-        h-1
-        -z-10
-        bg-teal-400
+        bg-teal-400;
+    }
+    .interactive-list:not(.interactive-opacity):hover .link {
+        @apply
+        opacity-60;
+    }
+
+    .interactive-list:not(.interactive-opacity) .link {
+        @apply
+        hover:opacity-100
+    }
+    .interactive-list .subtitle {
+        @apply
         transition-all
         duration-300;
-        transform-origin: left center;
+    }
+    .interactive-list.flex-col .link~.subtitle {
+        @apply ml-32;
+    }
+    .interactive-list.flex-col .subtitle {
+        @apply -translate-x-10
+    }
+    .interactive-list.flex-col .link:hover~.subtitle {
+        @apply translate-x-0;
+    }
+    .interactive-list .link:hover~.subtitle {
+        @apply
+        opacity-100
+        text-teal-400;
+    }
+    .interactive-list:hover .subtitle {
+        @apply opacity-60;
     }
 
     .footer {
-        @apply w-full bg-zinc-900 text-base text-neutral-50;
+        @apply
+        w-full
+        text-base
+        text-zinc-900
+        dark:text-zinc-50 ;
     }
 }
 
 @layer utilities {
     .title {
-        @apply text-6xl text-zinc-50;
+        @apply text-6xl font-medium;
+    }
+    .subtitle {
+        @apply font-medium;
     }
 }
 
