@@ -15,7 +15,8 @@
 
     header
     {
-        @apply sticky
+        @apply
+        sticky
         top-0
         z-50;
     }
@@ -37,7 +38,6 @@
         @apply
         relative
         flex
-        pl-1 pr-1 m-3
         w-40
         box-content
         justify-center
@@ -70,16 +70,18 @@
         transition-all
         duration-700;
     }
-    .navbar .logo a{
-
-    }
 
     .interactive-list {
-        @apply relative flex
+        @apply
+        relative
+        flex
+        text-zinc-900
+        dark:text-zinc-50;
     }
-
-    .interactive-list item {
-        @apply relative;
+    .interactive-list .item {
+        @apply
+        block
+        relative;
     }
 
     .link {
@@ -87,6 +89,8 @@
         relative
         block
         px-32
+        py-10
+        z-10
         -translate-x-10
         transition-all
         duration-300;
@@ -129,13 +133,15 @@
         @apply
         opacity-60;
     }
-
     .interactive-list:not(.interactive-opacity) .link {
         @apply
         hover:opacity-100
     }
+
     .interactive-list .subtitle {
         @apply
+        -mt-10
+
         transition-all
         duration-300;
     }
@@ -150,8 +156,9 @@
     }
     .interactive-list .link:hover~.subtitle {
         @apply
+        text-teal-400
         opacity-100
-        text-teal-400;
+        delay-150;
     }
     .interactive-list:hover .subtitle {
         @apply opacity-60;
@@ -163,6 +170,34 @@
         text-base
         text-zinc-900
         dark:text-zinc-50 ;
+    }
+
+    .social {
+        @apply
+        flex
+        list-none
+        items-center
+        border-l
+        border-l-zinc-300
+        dark:border-l-zinc-800;
+    }
+    .social li {
+        @apply
+        mr-6
+        last-of-type:mr-0;
+    }
+
+    .social-icon
+    {
+        @apply
+        w-6
+        h-6
+        fill-zinc-900
+        dark:fill-zinc-50
+        duration-300
+        transition-all
+        hover:opacity-100
+        hover:fill-teal-400;
     }
 }
 
